@@ -1,0 +1,51 @@
+{% extends 'demo/index.html' %}
+
+{% block content %}
+<h1>hhhh</h1>
+<div class="container-fluid">
+    <h1 class="mt-4">OMR Dashboard</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area mr-1"></i>
+                    Input Image
+                </div>
+                <div class="card-body">
+                    <input type="file" id="omr_input" class="'image_inputType_file" accept="img/*" required
+                           multiple>
+                    <button class="browse-btn">Upload</button>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="file" id="omr_input" class="'image_inputType_file" accept="img/*" required
+                               multiple>
+                        <button type="submit">Upload image</button>
+                    </form>
+                    <h1>testing index</h1>
+                    <form method="post" action="upload" enctype="multipart/form-data">
+                        {% load imagekit %}
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="submit" value="Upload"/>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Student Info Table
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
