@@ -13,3 +13,16 @@ class ImagePost(models.Model):
         #options = {'quality': 60}
     )
 '''
+
+class SubmitImage(models.Model):
+    '''
+    title = models.CharField(max_length=200)
+    pub_date = models.DateTimeField("date published")
+    body = models.TextField()
+    '''
+    image = models.ImageField(blank=True, upload_to="image", null=True)
+
+    def __str__(self):
+        return self.title
+    def summary(self):
+        return self.body[:100]

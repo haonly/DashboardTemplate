@@ -128,11 +128,11 @@
                             </div>
                             <div class="card-body">
                                 <h1>testing index</h1>
-                                <form method="post" action="upload/" enctype="multipart/form-data">
+                                <form method="post" action="{% url 'demo:upload' %}" enctype="multipart/form-data">
                                     {% load imagekit %}
                                     {% csrf_token %}
                                     {{ form }}
-                                    <input type="file" id="omr_input" class="'image_inputType_file" accept="img/*" required
+                                    <input type="file" id="omr_input" name='OMR image' class="image_inputType_file" accept="img/*" required
                                            multiple>
                                     <input type="submit" value="Upload"/>
                                 </form>
