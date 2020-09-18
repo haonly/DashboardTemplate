@@ -1,42 +1,10 @@
 {% extends 'demo/index.html' %}
 
 {% block content %}
-<h1>hhhh</h1>
 <div class="container-fluid">
-    <h1 class="mt-4">OMR Dashboard</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">OMR result</li>
     </ol>
-   <!-- <div class="row">
-        <div class="col-xl-6">
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-chart-area mr-1"></i>
-                    Input Image
-                </div>
-                <div class="card-body">
-                    <input type="file" id="omr_input" class="'image_inputType_file" accept="img/*" required
-                           multiple>
-                    <button class="browse-btn">Upload</button>
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form }}
-                        <input type="file" id="omr_input" class="'image_inputType_file" accept="img/*" required
-                               multiple>
-                        <button type="submit">Upload image</button>
-                    </form>
-                    <h1>testing index</h1>
-                    <form method="post" action="upload" enctype="multipart/form-data">
-                        {% load imagekit %}
-                        {% csrf_token %}
-                        {{ form }}
-                        <input type="submit" value="Upload"/>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>-->
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
@@ -44,6 +12,32 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0" id="dataTable" class="table">
+                    <thead>
+                    <tr class="header">
+                        <th>학생 이름</th>
+                        <th>학생 성별</th>
+                        <th>수험번호</th>
+                        <th>생년월일</th>
+                        <th>학생 답안</th>
+                        <th>잘못된 인식</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for track in result %}
+                        {% for accomp_track in track.1 %}
+                            <tr>
+                                <td>{{ track.0.0 }} <br/> {{ track.2 }} <br/> <img src={{ track.3 }} width="80"
+                                                                                   height="80"> <br/> <a href="{{ track.4 }}">{{ track.4 }}</a></td>
+                                <td><img src={{ accomp_track.0 }} width="80" height="80"></td>
+                                <td><a href="{{ accomp_track.2 }}">{{ accomp_track.1 }}</a></td>
+                                <td><a href="{{ accomp_track.4 }}">{{ accomp_track.3 }}</a></td>
+
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
