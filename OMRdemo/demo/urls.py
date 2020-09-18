@@ -8,5 +8,5 @@ app_name = 'demo'
 urlpatterns = [
     #url('', views.index, name='index'),
     url(r'^upload/', views.upload, name='upload'),
-    url(r'^index/$', views.index, name='index'),
+    url('', views.index, name='index'),
 ]
