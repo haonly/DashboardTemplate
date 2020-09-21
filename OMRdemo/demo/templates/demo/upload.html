@@ -1,6 +1,20 @@
 {% extends 'demo/index.html' %}
 
 {% block content %}
+<div class="col-xl-6">
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-chart-bar mr-1"></i>
+            Bar Chart Example
+        </div>
+        <div class="card-body">
+            {% if image %}
+            <img src="{{ image.url }}" width="500" height="400"/>
+            {% endif %}</div>
+    </div>
+</div>
+
+
 <div class="container-fluid">
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">OMR result</li>
@@ -23,27 +37,24 @@
                         <th>잘못된 인식</th>
                     </tr>
                     </thead>
-                    <!--<tbody>
-                    {% for track in result %}
-                    {% for accomp_track in track.1 %}
+                    <tbody>
+                     {% if OMR %}
                     <tr>
-                        <td>{{ track.0.0 }} <br/> {{ track.2 }} <br/> <img src={{ track.3 }} width="80"
-                                                                           height="80"> <br/> <a href="{{ track.4 }}">{{ track.4 }}</a></td>
-                        <td><img src={{ accomp_track.0 }} width="80" height="80"></td>
-                        <td><a href="{{ accomp_track.2 }}">{{ accomp_track.1 }}</a></td>
-                        <td><a href="{{ accomp_track.4 }}">{{ accomp_track.3 }}</a></td>
-
+                        <td>{{ OMR.0}} </td>
+                        <td>{{ OMR.1}} </td>
+                        <td>{{ OMR.2}} </td>
+                        <td>{{ OMR.3}} </td>
+                        <td>{{ OMR.4}} </td>
+                        <td>{{ OMR.5}} </td>
                     </tr>
-                    {% endfor %}
-                    {% endfor %}
-                    </tbody>-->
+                    {% endif %}
+                    </tbody>
                 </table>
-                {% if image %}
-                <img src="{{ image.url }}" width="200" height="100"/>
-                {% endif %}
+
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 {% endblock %}

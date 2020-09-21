@@ -117,7 +117,7 @@
             <div class="container-fluid">
                 <h1 class="mt-4">OMR Dashboard</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item active">한국교육과정평가원</li>
                 </ol>
                 <div class="row">
                     <div class="col-xl-6">
@@ -127,7 +127,7 @@
                                 Input Image
                             </div>
                             <div class="card-body">
-                                <h1>testing index</h1>
+                                <h3>Input OMR image below</h3>
                                 <form method="post" action="{% url 'demo:upload' %}" enctype="multipart/form-data">
                                     {% load imagekit %}
                                     {% csrf_token %}
@@ -140,12 +140,12 @@
                             </div>
                         </div>
                     </div>
+                    {% block content %}
+
+                    {% endblock %}
                 </div>
             </div>
 
-            {% block content %}
-
-            {% endblock %}
         </main>
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
